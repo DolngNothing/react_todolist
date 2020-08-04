@@ -13,11 +13,11 @@ export default class Todo extends React.Component {
 }
 
   deleteTodo = () => {
-    this.props.deleteTodo(this.props.index);
+    this.props.deleteTodo(this.props.value.id);
   };
 
   doneTodo = () => {
-    this.props.doneTodo(this.props.index);
+    this.props.doneTodo(this.props.value.id);
     this.setState({className:this.props.value.status==true?'done':'undo'});
   };
 

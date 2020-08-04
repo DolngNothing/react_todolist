@@ -3,20 +3,25 @@ const todoList = (state = [], action) => {
     case "ADD_TODO": {
       return [
         ...state,
-        { id: action.id, content: action.content, status: false },
+        { id: state.length, content: action.content, status: false },
       ];
     }
 
     case "DELETE_TODO": {
-      let newState = state.filter((value, index) => {
-        return index !== action.index;
+      let newState = state.filter((value) => {
+        return value.id !== action.id;
       });
       return newState;
     }
 
     case "DONE_TODO": {
       let newState = [...state];
-      newState[action.index].status = !newState[action.index].status;
+      newState.map((value)=>{
+        if(value.id===action.id){
+          return value.status=!value.status;
+        }
+        return value.status;
+      })
       return newState;
     }
 
