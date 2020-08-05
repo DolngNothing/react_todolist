@@ -9,7 +9,7 @@ export default class DoneTodoList extends React.Component {
     render() {
         return this.props.todoList.map((todo, index) => (
           <div>
-            <TodoContainer value={todo} index={index} />
+            <TodoContainer value={todo} key={index} index={index} />
             <br />
           </div>
         ));

@@ -17,7 +17,7 @@ export default class Todo extends React.Component {
   };
 
   doneTodo = () => {
-    this.props.doneTodo(this.props.value.id);
+    this.props.doneTodo(this.props.value);
     this.setState({className:this.props.value.status==true?'done':'undo'});
   };
 

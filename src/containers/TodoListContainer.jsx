@@ -5,4 +5,10 @@ const mapStateToProps = (state) => ({
   todoList: state.TodoList,
 });
 
-export default connect(mapStateToProps)(TodoList);
+const mapDispatchToProps = (dispatch) => ({
+  getTodoList: (list) => {
+    dispatch({ type: "GET_LIST", list });
+  }
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
